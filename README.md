@@ -22,3 +22,5 @@ By the next meeting our only big objective was to formalize these notes and shar
 We will also decide on what case we want to use snake versus camelcase for the sake of consistency in our written code. 
 
 GitHub test!
+
+testing123
