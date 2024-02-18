@@ -20,3 +20,5 @@ FUTURE:
 As a group we decided it would be crucial to sit in person and review GitHub together to become familiar with the platform as well as name our team at the next meeting. In person meetings will allow for better communication and ease of shared digital work.
 By the next meeting our only big objective was to formalize these notes and share them to the repository so we had them in a visible location for our TAs and professor. As the scheduler that was Katie’s responsibility
 We will also decide on what case we want to use snake versus camelcase for the sake of consistency in our written code. 
+
+GitHub test!
