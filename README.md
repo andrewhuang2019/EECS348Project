@@ -22,10 +22,10 @@ Parsing allows for usage of parenthesis to prioritize evaluation of expressions.
 Logical parsing systems within the program are able to be combined together to calculate the final True or False output, and then the result is relayed back to the user through the same method that they input the expression in. 
 
 ## Examples of Valid and Invalid Expressions: 
-Valid:  
+### Valid  
 T & F 
 
-Invalid:  
+### Invalid  
 & ! X
 
 
