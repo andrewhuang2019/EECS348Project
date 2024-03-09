@@ -1,13 +1,14 @@
 # Boolean Logic Simulator in C++
 
-Introduction: 
+## Introduction:
+
 This project simulates digital logic systems in C++, through the comprehensive definition of functionality with gates and their interaction with expressions containing boolean True and False input. 
 
 The gates that are implemented in this project are as follows:
 AND, OR, NOT, NAND, XOR.
 
 
-Functionality includes:
+## Functionality includes:
 -Truth Value Input
 -Error Handling
 -Expression Parsing
@@ -30,14 +31,15 @@ Calculation and Output -
 Logical parsing systems within the program are able to be combined together to calculate the final True or False output, and then the result is relayed back to the user through the same method that they input the expression in. 
 
 
-Examples of Valid and Invalid Expressions: 
+## Examples of Valid and Invalid Expressions: 
 Valid
 T & F 
 
 Invalid
 & ! X
 
-Quick Start (How to Run): 
+
+## Quick Start (How to Run): 
 
 TBD
 
