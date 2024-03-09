@@ -1,4 +1,4 @@
-# Boolean Logic Simulator in C++
+# **Boolean Logic Simulator in C++**
 
 ## Introduction:
 This project simulates digital logic systems in C++, through the comprehensive definition of functionality with gates and their interaction with expressions containing boolean True and False input. 
@@ -32,4 +32,8 @@ T & F
 ## Quick Start (How to Run): 
 
 TBD
+1. step 1 
+2. step 2 
+3. step 3
 
+`code snippet`
