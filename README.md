@@ -23,14 +23,14 @@ Logical parsing systems within the program are able to be combined together to c
 
 ## Examples of Valid and Invalid Expressions: 
 #### Valid  
-(T | F) $ F  =>  True
-(F @ T) | (T @ F)  =>  False
-(((((T | F) & F) | (T & (T | F))) @ (T @ T)) $ (! (T | F)))  =>  True
+(T | F) $ F  =>  True  
+(F @ T) | (T @ F)  =>  False  
+(((((T | F) & F) | (T & (T | F))) @ (T @ T)) $ (! (T | F)))  =>  True  
 
 #### Invalid  
-!&T  [Mising operand after NOT]
-T = !(T & T)  [Variable defined in terms of itself]
-True | F  [Inconsistent characters]
+!&T  [Mising operand after NOT]  
+T = !(T & T)  [Variable defined in terms of itself]  
+True | F  [Inconsistent characters]  
 
 ## Quick Start (How to Run): 
 
