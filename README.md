@@ -6,8 +6,8 @@ This project simulates digital logic systems in C++, through the comprehensive d
 The gates that are implemented in this project are: AND, OR, NOT, NAND, XOR.  
 
 ## News:  
-Added Software Architecture document.  
-Updated Meeting Notes with most recent meeting.  
+Added Software Architecture document, which defines the architecture that our program will follow.  
+Updated Meeting Notes with most recent meeting (April 6th).  
 
 ## Functionality:
 #### Truth Value Input
