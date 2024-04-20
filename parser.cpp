@@ -3,7 +3,7 @@
 #include <stdbool.h>
 using namespace std;
 
-char operators[] = {'&','|','!','@','$'}
+char operators[] = {'&','|','!','@','$'};
 
 bool isValid(string input) {
     int openParen = 0;
