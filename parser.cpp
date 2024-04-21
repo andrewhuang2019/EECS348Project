@@ -19,27 +19,42 @@ string Parser::removeWhitespace(string expr){
     return expr;
 }
 
-bool Parser::isValid(string expr) {
-    int openParen = 0;
-    int closeParen = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
-        if (expr[i] == '(') {
-            openParen++;
-        }
-        if (expr[i] == ')') {
-            closeParen++;
-        }
-        for (int j = 0; j < sizeof(operators); j++) {
-            if (expr[i] == operators[j]) {
-                for (int k = 0; k < sizeof(operators); k++) {
-                    if (expr[i+1] == operators[k]) {
-                        return false;
-                    }
-                }
-                if (expr[i+1] == '(' || expr[i+1] == ')') {
-                    return false;
-                }
-            }
+// bool Parser::isValid(string expr) {
+//     int openParen = 0;
+//     int closeParen = 0;
+//     for (int i = 0; i < sizeof(expr); i++) {
+//         if (expr[i] == '(') {
+//             openParen++;
+//         }
+//         if (expr[i] == ')') {
+//             closeParen++;
+//         }
+//         for (int j = 0; j < sizeof(operators); j++) {
+//             if (expr[i] == operators[j]) {
+//                 for (int k = 0; k < sizeof(operators); k++) {
+//                     if (expr[i+1] == operators[k]) {
+//                         return false;
+//                     }
+//                 }
+//                 if (expr[i+1] == '(' || expr[i+1] == ')') {
+//                     return false;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+bool Parser::isValid(string expr){
+    for (int i = 0; i < 5; i++){
+        if (expr[1] == operators[i]){
+            return true;
         }
     }
+    if (expr[0] != 'T' || expr[0] != 'F'){
+        return false;
+    }
+    if (expr[2] != 'T' || expr[2] != 'F'){
+        return false;
+    }
+    return true;
 }
