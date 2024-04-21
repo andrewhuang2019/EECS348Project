@@ -12,6 +12,7 @@ class Parser {
     public:
         string removeWhitespace(string);
         string evaluate(string);
+        string parenthesesHandler(string);
         bool isValid(string);
 };
 
@@ -54,8 +55,7 @@ string parenthesesHandler(string expr) {
 }
 */
 
-string parenthesesHandler(string expr) {
-    Parser parser = Parser();                       // Creates a parser to evaluate the string
+string Parser::parenthesesHandler(string expr) {
     map<int, int> parenCount;                       // Creates map to keep track of parentheses count (see next for loop)
     int openParen = 0;                              // Creates ints to keep track of parentheses count
     int closeParen = 0;
@@ -84,7 +84,7 @@ string parenthesesHandler(string expr) {
     }
     endIndex++;
     string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-2));             // Generates substring from operation area (excluding parentheses) to be evaluated
-    expr.replace(startIndex,(endIndex-startIndex),parser.evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
+    expr.replace(startIndex,(endIndex-startIndex),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
     return expr;                                                                        // Returns input string with the area replaced
 }
 
@@ -146,11 +146,12 @@ string Parser::evaluate(string expr){
 }
 
 /* int main() {
+    Parser myParser = Parser();
     string sampleExpr = "((F$((T|F)&(F@(T|F))))|(T$(T&F)))";
     cout << sampleExpr << "\n";
-    string evaluateSample = parenthesesHandler(sampleExpr);
+    string evaluateSample = myParser.parenthesesHandler(sampleExpr);
     cout << evaluateSample << "\n";
-    string evaluateEvaluate = parenthesesHandler(evaluateSample);
+    string evaluateEvaluate = myParser.parenthesesHandler(evaluateSample);
     cout << evaluateEvaluate;
     return 0;
 } */
