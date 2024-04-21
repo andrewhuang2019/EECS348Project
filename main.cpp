@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
+#include "parser.cpp"
 
 using namespace std;
 
-//Parser parse = new Parser();
+Parser parse = Parser();
 
 void readInput();
 
@@ -17,7 +18,11 @@ void readInput(){
     cin >> userInput;
     cout << userInput << endl;
 
-    //
-    //parse.isValid(userinput);
+    
+    if (parse.isValid(userInput)){
+        throw ("Invalid Input");
+    } else {
 
+    }
+    
 }
