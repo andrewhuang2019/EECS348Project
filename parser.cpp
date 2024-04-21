@@ -10,8 +10,9 @@ class Parser {
         char operators[5] = {'&','|','!','@','$'};
 
     public:
-        string removeWhitespace(string expr);
-        bool isValid(string input);
+        string removeWhitespace(string);
+        string evaluate(string);
+        bool isValid(string);
 };
 
 string Parser::removeWhitespace(string expr){
@@ -53,35 +54,35 @@ string parenthesesHandler(string expr) {
 }
 */
 
-string parenthesesHandler(string expr) {
-    map<int, int> parenCount;
-    int openParen = 0;
-    int closeParen = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
-        if (expr[i] == '(') {
-            openParen++;
-        }
-        if (expr[i] == ')') {
-            closeParen++;
-        }
-        parenCount[i] = openParen - closeParen;
-    }
-    int maxDepth = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
-        if (parenCount[i] > maxDepth) {
-            maxDepth = parenCount[i];
-        }
-    }
-    int startIndex = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
-        if (parenCount[i] == maxDepth) {
-            break;
-        }
-        startIndex++;
-    }
-    int endIndex = startIndex;
-    while 
-}
+// string parenthesesHandler(string expr) {
+//     map<int, int> parenCount;
+//     int openParen = 0;
+//     int closeParen = 0;
+//     for (int i = 0; i < sizeof(expr); i++) {
+//         if (expr[i] == '(') {
+//             openParen++;
+//         }
+//         if (expr[i] == ')') {
+//             closeParen++;
+//         }
+//         parenCount[i] = openParen - closeParen;
+//     }
+//     int maxDepth = 0;
+//     for (int i = 0; i < sizeof(expr); i++) {
+//         if (parenCount[i] > maxDepth) {
+//             maxDepth = parenCount[i];
+//         }
+//     }
+//     int startIndex = 0;
+//     for (int i = 0; i < sizeof(expr); i++) {
+//         if (parenCount[i] == maxDepth) {
+//             break;
+//         }
+//         startIndex++;
+//     }
+//     int endIndex = startIndex;
+//     while 
+// }
 
 // bool Parser::isValid(string expr) {
 //     int openParen = 0;
@@ -121,4 +122,21 @@ bool Parser::isValid(string expr){
         return false;
     }
     return true;
+}
+
+string Parser::evaluate(string expr){
+    for (int i = 0; i < sizeof(expr); i++){
+        if (expr[i] == ')'){
+            string operand = expr.substr(i-3,3);
+            std::cout << operand << endl;
+            expr[i-4] = 'T';
+            expr.erase(i-3, 4);
+            return expr;
+            }
+        }
+    string operand = expr.substr(0,3);
+    std::cout << operand << endl;
+    expr[0] = 'T';
+    expr.erase(1, 3);
+    return expr;
 }
