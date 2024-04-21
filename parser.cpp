@@ -54,35 +54,39 @@ string parenthesesHandler(string expr) {
 }
 */
 
-// string parenthesesHandler(string expr) {
-//     map<int, int> parenCount;
-//     int openParen = 0;
-//     int closeParen = 0;
-//     for (int i = 0; i < sizeof(expr); i++) {
-//         if (expr[i] == '(') {
-//             openParen++;
-//         }
-//         if (expr[i] == ')') {
-//             closeParen++;
-//         }
-//         parenCount[i] = openParen - closeParen;
-//     }
-//     int maxDepth = 0;
-//     for (int i = 0; i < sizeof(expr); i++) {
-//         if (parenCount[i] > maxDepth) {
-//             maxDepth = parenCount[i];
-//         }
-//     }
-//     int startIndex = 0;
-//     for (int i = 0; i < sizeof(expr); i++) {
-//         if (parenCount[i] == maxDepth) {
-//             break;
-//         }
-//         startIndex++;
-//     }
-//     int endIndex = startIndex;
-//     while 
-// }
+string parenthesesHandler(string expr) {
+    Parser parser = Parser();                       // Creates a parser to evaluate the string
+    map<int, int> parenCount;                       // Creates map to keep track of parentheses count (see next for loop)
+    int openParen = 0;                              // Creates ints to keep track of parentheses count
+    int closeParen = 0;
+    for (int i = 0; i < sizeof(expr); i++) {        // For every index in string, generates count of how many open parentheses there have been minus count of how many close parentheses there have been, and appends it to map
+        if (expr[i] == '(') {
+            openParen++;
+        }
+        if (expr[i] == ')') {
+            closeParen++;
+        }
+        parenCount[i] = openParen - closeParen;
+    }
+    int maxDepth = 0;
+    for (int i = 0; i < sizeof(expr); i++) {        // Generates count of max parentheses depth that expression reaches
+        if (parenCount[i] > maxDepth) {
+            maxDepth = parenCount[i];
+        }
+    }
+    int startIndex = 0;
+    while (parenCount[startIndex] != maxDepth) {    // Sets starting index of operation area to first place where max depth is reached
+        startIndex++;
+    }
+    int endIndex = startIndex;
+    while (parenCount[endIndex] == maxDepth) {      // Sets ending index of operation area to end of this particular max depth region
+        endIndex++;
+    }
+    endIndex++;
+    string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-2));             // Generates substring from operation area (excluding parentheses) to be evaluated
+    expr.replace(startIndex,(endIndex-startIndex),parser.evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
+    return expr;                                                                        // Returns input string with the area replaced
+}
 
 // bool Parser::isValid(string expr) {
 //     int openParen = 0;
@@ -140,3 +144,13 @@ string Parser::evaluate(string expr){
     expr.erase(1, 3);
     return expr;
 }
+
+/* int main() {
+    string sampleExpr = "((F$((T|F)&(F@(T|F))))|(T$(T&F)))";
+    cout << sampleExpr << "\n";
+    string evaluateSample = parenthesesHandler(sampleExpr);
+    cout << evaluateSample << "\n";
+    string evaluateEvaluate = parenthesesHandler(evaluateSample);
+    cout << evaluateEvaluate;
+    return 0;
+} */
