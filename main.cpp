@@ -15,7 +15,8 @@ int main(){
 
 void readInput(){
     string userInput;
-    cin >> userInput;
+    getline(cin,userInput);
+    userInput = parse.removeWhitespace(userInput);
     cout << userInput << endl;
 
     
