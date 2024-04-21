@@ -15,6 +15,18 @@ bool isValid(string input) {
         if (input[i] == ')') {
             closeParen++;
         }
+        for (int j = 0; j < sizeof(operators); j++) {
+            if (input[i] == operators[j]) {
+                for (int k = 0; k < sizeof(operators); k++) {
+                    if (input[i+1] == operators[k]) {
+                        return false;
+                    }
+                }
+                if (input[i+1] == '(' || input[i+1] == ')') {
+                    return false;
+                }
+            }
+        }
     }
     if (openParen != closeParen) {
         return false;
