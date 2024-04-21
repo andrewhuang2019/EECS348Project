@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdbool.h>
+#include <algorithm>
 using namespace std;
 
 class Parser {
