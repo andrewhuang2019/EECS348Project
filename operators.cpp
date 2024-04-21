@@ -16,6 +16,7 @@ string orFunction(string expression){
 }
 
 string andFunction(string expression){
+
     return "S";
 }
 
@@ -24,9 +25,35 @@ string notFunction(string expression){
 }
 
 string nandFunction(string expression){
-    return "S";
+    string ans;
+    if (expression[0] == 'T' && expression[2] == 'T'){
+        ans = "F";
+    }
+    else if (expression[0] == 'T' && expression[2] == 'F'){
+        ans = "T";
+    }
+    else if (expression[0] == 'F' && expression[2] == 'T'){
+        ans = "T";
+    }
+    else if (expression[0] == 'F' && expression[2] == 'F'){
+        ans = "T";
+    }
+    return ans;
 }
 
 string xorFunction(string expression){
-    return "S";
+    string ans;
+    if (expression[0] == 'T' && expression[2] == 'T'){
+        ans = "F";
+    }
+    else if (expression[0] == 'T' && expression[2] == 'F'){
+        ans = "T";
+    }
+    else if (expression[0] == 'F' && expression[2] == 'T'){
+        ans = "T";
+    }
+    else if (expression[0] == 'F' && expression[2] == 'F'){
+        ans = "F";
+    }
+    return ans;
 }
