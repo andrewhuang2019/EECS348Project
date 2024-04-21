@@ -2,116 +2,100 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string test1 = "T|F";
-    orFunction(test1);
+class Operators {
+    private:
+    public:
+        string orFunction(string expression){
+            string ans = "";
+            if(expression[0] == 'T' && expression[2] == 'T'){
+                ans = "T";
+            }
 
-    string test2 = "T&F";
-    andFunction(test2);
+            else if(expression[0] == 'F' && expression[2] == 'T'){
+                ans = "T";
+            }
 
-    string test3 = "T!F";
-    notFunction(test3);
+            else if(expression[0] == 'T' && expression[2] == 'F'){
+                ans = "T";
+            }
 
-    string test4 = "T@F";
-    nandFunction(test4);
+            else if (expression[0] == 'F' && expression[2] == 'F'){
+                ans = "F";
+            }
+            return ans;
+        }
 
-    string test5 = "T$F";
-    xorFunction(test5);
-}
+        string andFunction(string expression){
+            string ans = "";
+            if(expression[0] == 'T' && expression[2] == 'T'){
+                ans = "T";
+            }
 
-string orFunction(string expression){
-    string ans = "";
-    if(expression[0] == 'T' || expression[2] == 'T'){
-        ans = "T";
-    }
+            else if(expression[0] == 'F' && expression[2] == 'T'){
+                ans = "F";
+            }
 
-    if(expression[0] == 'F' || expression[2] == 'T'){
-        ans = "T";
-    }
+            else if(expression[0] == 'T' && expression[2] == 'F'){
+                ans = "F";
+            }
 
-    if(expression[0] == 'T' || expression[2] == 'F'){
-        ans = "T";
-    }
+            else if(expression[0] == 'F' && expression[2] == 'F'){
+                ans = "T";
+            }
+            return ans;
+        }
 
-    if(expression[0] == 'F' || expression[2] == 'F'){
-        ans = "F";
-    }
+        string notFunction(string expression){
+            string ans = "";
+            if(expression[0] == 'T' && expression[2] == 'T'){
+                ans = "F";
+            }
 
-    return ans;
-}
+            else if(expression[0] == 'F' && expression[2] == 'T'){
+                ans = "T";
+            }
 
-string andFunction(string expression){
-    string ans = "";
-    if(expression[0] == 'T' && expression[2] == 'T'){
-        ans = "T";
-    }
+            else if(expression[0] == 'T' && expression[2] == 'F'){
+                ans = "T";
+            }
 
-    if(expression[0] == 'F' && expression[2] == 'T'){
-        ans = "F";
-    }
+            else if(expression[0] == 'F' && expression[2] == 'F'){
+                ans = "F";
+            }
+            return ans;
+        }
 
-    if(expression[0] == 'T' && expression[2] == 'F'){
-        ans = "F";
-    }
+        string nandFunction(string expression){
+            string ans;
+            if (expression[0] == 'T' && expression[2] == 'T'){
+                ans = "F";
+            }
+            else if (expression[0] == 'T' && expression[2] == 'F'){
+                ans = "T";
+            }
+            else if (expression[0] == 'F' && expression[2] == 'T'){
+                ans = "T";
+            }
+            else if (expression[0] == 'F' && expression[2] == 'F'){
+                ans = "T";
+            }
+            return ans;
+        }
 
-    if(expression[0] == 'F' && expression[2] == 'F'){
-        ans = "T";
-    }
-
-    return ans;
-}
-
-string notFunction(string expression){
-    string ans = "";
-    if(expression[0] == 'T' && !(expression[2] == 'T')){
-        ans = "F";
-    }
-
-    if(expression[0] == 'F' && !(expression[2] == 'T')){
-        ans = "T";
-    }
-
-    if(expression[0] == 'T' && !(expression[2] == 'F')){
-        ans = "T";
-    }
-
-    if(expression[0] == 'F' && !(expression[2] == 'F')){
-        ans = "F";
-    }
-
-    return ans;
-}
-
-string nandFunction(string expression){
-    string ans;
-    if (expression[0] == 'T' && expression[2] == 'T'){
-        ans = "F";
-    }
-    else if (expression[0] == 'T' && expression[2] == 'F'){
-        ans = "T";
-    }
-    else if (expression[0] == 'F' && expression[2] == 'T'){
-        ans = "T";
-    }
-    else if (expression[0] == 'F' && expression[2] == 'F'){
-        ans = "T";
-    }
-    return ans;
-}
-
-string xorFunction(string expression){
-    string ans;
-    if (expression[0] == 'T' && expression[2] == 'T'){
-        ans = "F";
-    }
-    else if (expression[0] == 'T' && expression[2] == 'F'){
-        ans = "T";
-    }
-    else if (expression[0] == 'F' && expression[2] == 'T'){
-        ans = "T";
-    }
-    else if (expression[0] == 'F' && expression[2] == 'F'){
-        ans = "F";
-    }
-    return ans;
-}
+        string xorFunction(string expression){
+            string ans;
+            if (expression[0] == 'T' && expression[2] == 'T'){
+                ans = "F";
+            }
+            else if (expression[0] == 'T' && expression[2] == 'F'){
+                ans = "T";
+            }
+            else if (expression[0] == 'F' && expression[2] == 'T'){
+                ans = "T";
+            }
+            else if (expression[0] == 'F' && expression[2] == 'F'){
+                ans = "F";
+            }
+            return ans;
+        }
+};
