@@ -6,7 +6,7 @@ using namespace std;
 char operators[] = {'&','|','!','@','$'};
 
 string removeWhitespace(string expr);
-bool isValid(string input);
+bool isValid(string expr);
 
 int main() {
     //example of getting user input and removing whitespace
@@ -22,24 +22,24 @@ string removeWhitespace(string expr){
     return expr;
 }
 
-bool isValid(string input) {
+bool isValid(string expr) {
     int openParen = 0;
     int closeParen = 0;
-    for (int i = 0; i < sizeof(input); i++) {
-        if (input[i] == '(') {
+    for (int i = 0; i < sizeof(expr); i++) {
+        if (expr[i] == '(') {
             openParen++;
         }
-        if (input[i] == ')') {
+        if (expr[i] == ')') {
             closeParen++;
         }
         for (int j = 0; j < sizeof(operators); j++) {
-            if (input[i] == operators[j]) {
+            if (expr[i] == operators[j]) {
                 for (int k = 0; k < sizeof(operators); k++) {
-                    if (input[i+1] == operators[k]) {
+                    if (expr[i+1] == operators[k]) {
                         return false;
                     }
                 }
-                if (input[i+1] == '(' || input[i+1] == ')') {
+                if (expr[i+1] == '(' || expr[i+1] == ')') {
                     return false;
                 }
             }
