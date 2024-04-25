@@ -17,13 +17,16 @@ void readInput(){
     string userInput;
     getline(cin,userInput);
     userInput = parse.removeWhitespace(userInput);
+
+    while (userInput.size() > 1){
+        userInput = parse.evaluate(userInput);
+    }
     cout << userInput << endl;
 
-    
-    if (parse.isValid(userInput)){
-        throw ("Invalid Input");
-    } else {
+    // if (parse.isValid(userInput)){
+    //     throw ("Invalid Input");
+    // } else {
 
-    }
+    // }
     
 }

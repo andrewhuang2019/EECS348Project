@@ -10,8 +10,10 @@ class Parser {
         char operators[5] = {'&','|','!','@','$'};
 
     public:
-        string removeWhitespace(string expr);
-        bool isValid(string input);
+        string removeWhitespace(string);
+        string evaluate(string);
+        string parenthesesHandler(string);
+        bool isValid(string);
 };
 
 string Parser::removeWhitespace(string expr){
@@ -53,11 +55,11 @@ string parenthesesHandler(string expr) {
 }
 */
 
-string parenthesesHandler(string expr) {
-    map<int, int> parenCount;
-    int openParen = 0;
+string Parser::parenthesesHandler(string expr) {
+    map<int, int> parenCount;                       // Creates map to keep track of parentheses count (see next for loop)
+    int openParen = 0;                              // Creates ints to keep track of parentheses count
     int closeParen = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
+    for (int i = 0; i < sizeof(expr); i++) {        // For every index in string, generates count of how many open parentheses there have been minus count of how many close parentheses there have been, and appends it to map
         if (expr[i] == '(') {
             openParen++;
         }
@@ -66,21 +68,31 @@ string parenthesesHandler(string expr) {
         }
         parenCount[i] = openParen - closeParen;
     }
+    if (openParen != closeParen) {
+        throw std::runtime_error("ERROR: Parentheses mismatch");
+    }
     int maxDepth = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
+    for (int i = 0; i < sizeof(expr); i++) {        // Generates count of max parentheses depth that expression reaches
         if (parenCount[i] > maxDepth) {
             maxDepth = parenCount[i];
         }
     }
     int startIndex = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
-        if (parenCount[i] == maxDepth) {
-            break;
-        }
+    while (parenCount[startIndex] != maxDepth) {    // Sets starting index of operation area to first place where max depth is reached
         startIndex++;
     }
     int endIndex = startIndex;
-    while 
+    while (parenCount[endIndex] == maxDepth) {      // Sets ending index of operation area to end of this particular max depth region
+        endIndex++;
+    }
+    endIndex++;
+    string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-2));             // Generates substring from operation area (excluding parentheses) to be evaluated
+    if (isValid(evaluateStr)){
+        expr.replace(startIndex,(endIndex-startIndex),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
+        return expr;                                                                        // Returns input string with the area replaced
+    } else {
+        return "Invalid expression";
+    }
 }
 
 // bool Parser::isValid(string expr) {
@@ -121,4 +133,32 @@ bool Parser::isValid(string expr){
         return false;
     }
     return true;
+}
+
+string Parser::evaluate(string expr){
+    for (int i = 0; i < sizeof(expr); i++){
+        if (expr[i] == ')'){
+            string operand = expr.substr(i-3,3);
+            std::cout << operand << endl;
+            expr[i-4] = 'T';
+            expr.erase(i-3, 4);
+            return expr;
+            }
+        }
+    string operand = expr.substr(0,3);
+    std::cout << operand << endl;
+    expr[0] = 'T';
+    expr.erase(1, 3);
+    return expr;
+}
+
+int main() {
+    Parser myParser = Parser();
+    string sampleExpr = "((F$((T|F)&(F@(T|F))))|(T$(T&F)))";
+    cout << sampleExpr << "\n";
+    string evaluateSample = myParser.parenthesesHandler(sampleExpr);
+    cout << evaluateSample << "\n";
+    string evaluateEvaluate = myParser.parenthesesHandler(evaluateSample);
+    cout << evaluateEvaluate;
+    return 0;
 }
