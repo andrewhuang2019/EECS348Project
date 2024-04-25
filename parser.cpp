@@ -68,6 +68,9 @@ string Parser::parenthesesHandler(string expr) {
         }
         parenCount[i] = openParen - closeParen;
     }
+    if (openParen != closeParen) {
+        throw std::runtime_error("ERROR: Parentheses mismatch");
+    }
     int maxDepth = 0;
     for (int i = 0; i < sizeof(expr); i++) {        // Generates count of max parentheses depth that expression reaches
         if (parenCount[i] > maxDepth) {
@@ -84,8 +87,12 @@ string Parser::parenthesesHandler(string expr) {
     }
     endIndex++;
     string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-2));             // Generates substring from operation area (excluding parentheses) to be evaluated
-    expr.replace(startIndex,(endIndex-startIndex),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
-    return expr;                                                                        // Returns input string with the area replaced
+    if (isValid(evaluateStr)){
+        expr.replace(startIndex,(endIndex-startIndex),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
+        return expr;                                                                        // Returns input string with the area replaced
+    } else {
+        return "Invalid expression";
+    }
 }
 
 // bool Parser::isValid(string expr) {
