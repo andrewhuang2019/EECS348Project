@@ -11,8 +11,14 @@ class Parser {
     private:
         char operators[5] = {'&','|','!','@','$'};
         Operators ops = Operators();
+        char trueValue;
+        char falseValue;
 
     public:
+        Parser(char trueValue, char falseValue){
+            this->trueValue = trueValue;
+            this->falseValue = falseValue;
+        }
         string removeWhitespace(string);
         string evaluate(string);
         string expressionOverarching(string);
@@ -176,6 +182,8 @@ string Parser::evaluate(string expr){
 
 }
 
+/*
+
 int main() {
     Parser myParser = Parser();
     string sampleExpr = "((F$((T|F)&(F@(!T|F))))|(T$(T&F)))";
@@ -183,3 +191,5 @@ int main() {
     cout << newExpr;
     return 0;
 }
+
+*/
