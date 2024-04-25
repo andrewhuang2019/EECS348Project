@@ -3,11 +3,14 @@
 #include <stdbool.h>
 #include <map>
 #include <algorithm>
+#include "operators.cpp"
+
 using namespace std;
 
 class Parser {
     private:
         char operators[5] = {'&','|','!','@','$'};
+        Operators ops = Operators();
 
     public:
         string removeWhitespace(string);
@@ -136,20 +139,31 @@ bool Parser::isValid(string expr){
 }
 
 string Parser::evaluate(string expr){
-    for (int i = 0; i < sizeof(expr); i++){
-        if (expr[i] == ')'){
-            string operand = expr.substr(i-3,3);
-            std::cout << operand << endl;
-            expr[i-4] = 'T';
-            expr.erase(i-3, 4);
-            return expr;
+    if (expr[1] == '|'){
+        return ops.orFunction(expr);
+    } else if (expr[1] == '&') {
+        return ops.andFunction(expr);
+    } else if (expr[1] == '@'){
+        return ops.nandFunction(expr);
+    } else {
+
+        for (int i = 0; i < sizeof(expr); i++){
+            if (expr[i] == ')'){
+                string operand = expr.substr(i-3,3);
+                std::cout << operand << endl;
+                expr[i-4] = 'T';
+                expr.erase(i-3, 4);
+                return expr;
+                }
             }
-        }
-    string operand = expr.substr(0,3);
-    std::cout << operand << endl;
-    expr[0] = 'T';
-    expr.erase(1, 3);
-    return expr;
+        string operand = expr.substr(0,3);
+        std::cout << operand << endl;
+        expr[0] = 'T';
+        expr.erase(1, 3);
+        return expr;
+
+    }
+
 }
 
 int main() {
