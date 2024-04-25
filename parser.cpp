@@ -15,7 +15,7 @@ class Parser {
     public:
         string removeWhitespace(string);
         string evaluate(string);
-        string parenthesesHandler(string);
+        string expressionHandler(string);
         bool isValid(string);
 };
 
@@ -58,7 +58,7 @@ string parenthesesHandler(string expr) {
 }
 */
 
-string Parser::parenthesesHandler(string expr) {
+string Parser::expressionHandler(string expr) {
     map<int, int> parenCount;                       // Creates map to keep track of parentheses count (see next for loop)
     int openParen = 0;                              // Creates ints to keep track of parentheses count
     int closeParen = 0;
@@ -165,9 +165,9 @@ int main() {
     Parser myParser = Parser();
     string sampleExpr = "((F$((T|F)&(F@(T|F))))|(T$(T&F)))";
     cout << sampleExpr << "\n";
-    string evaluateSample = myParser.parenthesesHandler(sampleExpr);
+    string evaluateSample = myParser.expressionHandler(sampleExpr);
     cout << evaluateSample << "\n";
-    string evaluateEvaluate = myParser.parenthesesHandler(evaluateSample);
+    string evaluateEvaluate = myParser.expressionHandler(evaluateSample);
     cout << evaluateEvaluate;
     return 0;
 }
