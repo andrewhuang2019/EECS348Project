@@ -139,28 +139,18 @@ bool Parser::isValid(string expr){
 }
 
 string Parser::evaluate(string expr){
+    //returns a T or F value based on what the second value (operator) of the string expression is 
     if (expr[1] == '|'){
         return ops.orFunction(expr);
     } else if (expr[1] == '&') {
         return ops.andFunction(expr);
     } else if (expr[1] == '@'){
         return ops.nandFunction(expr);
-    } else {
+    } else if (expr[1] == '$') {
+        return ops.xorFunction(expr);
+    } else { //throws an error if the second expression is not either. 
 
-        for (int i = 0; i < sizeof(expr); i++){
-            if (expr[i] == ')'){
-                string operand = expr.substr(i-3,3);
-                std::cout << operand << endl;
-                expr[i-4] = 'T';
-                expr.erase(i-3, 4);
-                return expr;
-                }
-            }
-        string operand = expr.substr(0,3);
-        std::cout << operand << endl;
-        expr[0] = 'T';
-        expr.erase(1, 3);
-        return expr;
+        throw std::runtime_error("Invalid operator in expression");
 
     }
 
