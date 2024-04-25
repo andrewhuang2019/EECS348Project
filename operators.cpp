@@ -47,21 +47,14 @@ class Operators {
 
         string notFunction(string expression){
             string ans = "";
-            if(expression[0] == 'T' && expression[2] == 'T'){
-                ans = "F";
-            }
-
-            else if(expression[0] == 'F' && expression[2] == 'T'){
+            if(expression[1] == 'F'){
                 ans = "T";
             }
 
-            else if(expression[0] == 'T' && expression[2] == 'F'){
-                ans = "T";
-            }
-
-            else if(expression[0] == 'F' && expression[2] == 'F'){
+            else if(expression[1] == 'T'){
                 ans = "F";
             }
+
             return ans;
         }
 
