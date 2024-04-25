@@ -145,7 +145,7 @@ string Parser::evaluate(string expr){
     return expr;
 }
 
-/* int main() {
+int main() {
     Parser myParser = Parser();
     string sampleExpr = "((F$((T|F)&(F@(T|F))))|(T$(T&F)))";
     cout << sampleExpr << "\n";
@@ -154,4 +154,4 @@ string Parser::evaluate(string expr){
     string evaluateEvaluate = myParser.parenthesesHandler(evaluateSample);
     cout << evaluateEvaluate;
     return 0;
-} */
+}
