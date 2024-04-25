@@ -15,6 +15,7 @@ class Parser {
     public:
         string removeWhitespace(string);
         string evaluate(string);
+        string expressionOverarching(string);
         string expressionHandler(string);
         bool isValid(string);
 };
@@ -57,8 +58,26 @@ string parenthesesHandler(string expr) {
     
 }
 */
+string Parser::expressionOverarching(string expr) {
+    int openParen = 0;
+    for (int i = 0; i < sizeof(expr); i++) {
+        if (expr[i] == '(') {
+            openParen++;
+        }
+    }
+    for (int i = 0; i < openParen; i++) {
+        expr = expressionHandler(expr);
+    }
+    return expr;
+}
 
 string Parser::expressionHandler(string expr) {
+    for (int i = 0; i < sizeof(expr)-1; i++) {
+        if (expr[i] == '!' && expr[i+1] != '(' && expr[i+1] != ')') {
+			expr.replace(i,2,ops.notFunction(expr.substr(i,2)));
+        }
+    }
+    cout << expr << "\n";
     map<int, int> parenCount;                       // Creates map to keep track of parentheses count (see next for loop)
     int openParen = 0;                              // Creates ints to keep track of parentheses count
     int closeParen = 0;
@@ -71,14 +90,10 @@ string Parser::expressionHandler(string expr) {
         }
         parenCount[i] = openParen - closeParen;
     }
-    if (openParen != closeParen) {
+    //cout << openParen << "\n" << closeParen << "\n";
+    /* if (openParen != closeParen) {
         throw std::runtime_error("ERROR: Parentheses mismatch");
-    }
-    for (int i = 0; i < sizeof(expr)-1; i++) {
-        if (expr[i] == '!') {
-			expr.replace(i,2,ops.notFunction(expr.substr(i,2)));
-        }
-    }
+    } */
     int maxDepth = 0;
     for (int i = 0; i < sizeof(expr); i++) {        // Generates count of max parentheses depth that expression reaches
         if (parenCount[i] > maxDepth) {
@@ -163,11 +178,8 @@ string Parser::evaluate(string expr){
 
 int main() {
     Parser myParser = Parser();
-    string sampleExpr = "((F$((T|F)&(F@(T|F))))|(T$(T&F)))";
-    cout << sampleExpr << "\n";
-    string evaluateSample = myParser.expressionHandler(sampleExpr);
-    cout << evaluateSample << "\n";
-    string evaluateEvaluate = myParser.expressionHandler(evaluateSample);
-    cout << evaluateEvaluate;
+    string sampleExpr = "((F$((T|F)&(F@(!T|F))))|(T$(T&F)))";
+    string newExpr = myParser.expressionOverarching(sampleExpr);
+    cout << newExpr;
     return 0;
 }
