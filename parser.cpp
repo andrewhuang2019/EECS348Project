@@ -75,8 +75,8 @@ string Parser::parenthesesHandler(string expr) {
         throw std::runtime_error("ERROR: Parentheses mismatch");
     }
     for (int i = 0; i < sizeof(expr)-1; i++) {
-        if (expr[i] == "!") {
-			expr.replace(i,2,);
+        if (expr[i] == '!') {
+			expr.replace(i,2,ops.notFunction(expr.substr(i,2)));
         }
     }
     int maxDepth = 0;
