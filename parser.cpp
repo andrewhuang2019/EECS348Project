@@ -71,6 +71,11 @@ string Parser::parenthesesHandler(string expr) {
     if (openParen != closeParen) {
         throw std::runtime_error("ERROR: Parentheses mismatch");
     }
+    for (int i = 0; i < sizeof(expr)-1; i++) {
+        if (expr[i] == '!') {
+            continue;
+        }
+    }
     int maxDepth = 0;
     for (int i = 0; i < sizeof(expr); i++) {        // Generates count of max parentheses depth that expression reaches
         if (parenCount[i] > maxDepth) {
