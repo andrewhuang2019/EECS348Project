@@ -42,17 +42,7 @@ void readInput(){
 
     userInput = parse.removeWhitespace(userInput);
     userInput = parse.expressionOverarching(userInput);
-    /*
-    while (userInput.size() > 1){
-        userInput = parse.expressionHandler(userInput);
-    }*/
+    
     string result = (userInput == "T") ? "True" : "False";
     cout << "Evaluation: " << result << endl;
-
-    // if (parse.isValid(userInput)){
-    //     throw ("Invalid Input");
-    // } else {
-
-    // }
-    
 }
