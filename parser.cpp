@@ -141,7 +141,6 @@ string Parser::expressionHandler(string expr) {
         return expr;
     } else{
         string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-1));             // Generates substring from operation area (excluding parentheses) to be evaluated
-        cout << "Step: " << evaluateStr << endl;
         if (isValid(evaluateStr)){
             expr.replace(startIndex,(endIndex-startIndex+1),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
             return expr;                                                                        // Returns input string with the area replaced
