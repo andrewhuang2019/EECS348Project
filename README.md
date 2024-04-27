@@ -49,4 +49,4 @@ TBD
 
 `code snippet`
 
-If you have any more questions for this project or want a more in-depth explanation, reference the [User Manual](urlplaceholder).  
+If you have any more questions or want a more in-depth explanation, reference the [User Manual](urlplaceholder).  
