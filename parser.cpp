@@ -10,7 +10,7 @@ using namespace std;
 class Parser {
     private:
         char operators[5] = {'&','|','!','@','$'};
-        Operators ops = Operators();
+        Operators ops = Operators('T','F');
         char trueValue;
         char falseValue;
 
@@ -86,16 +86,16 @@ string parenthesesHandler(string expr) {
 
 string Parser::expressionOverarching(string expr) {
     while (expr.size() > 1){
-        expr = expressionHandler(expr);
-        if (expr.size() == 3 && isValid(expr)){
+        if (expr.size() == 3 && isValid(expr) && expr[0] != '('){
             return evaluate(expr);
         }
+        expr = expressionHandler(expr);
     }
     return expr;
 }
 
 string Parser::expressionHandler(string expr) {
-    for (int i = 0; i < sizeof(expr)-1; i++) {
+    for (int i = 0; i < expr.size(); i++) {
         if (expr[i] == '!' && expr[i+1] != '(' && expr[i+1] != ')') {
 			expr.replace(i,2,ops.notFunction(expr.substr(i,2)));
         }
@@ -211,7 +211,7 @@ string Parser::evaluate(string expr){
 int main() {
     Parser myParser = Parser();
     //(((T @ T) $ (F @ T)) | ((!T) & (T | (!T))))
-    string sampleExpr = "((F @ T) $ (T | (F & F))) & (T & (T @ (!T)))";
+    string sampleExpr = "(((! (T $ F)) & (T @ T)) | ((F | T) & (T $ T)))";
 
     sampleExpr = myParser.removeWhitespace(sampleExpr);
     string newExpr = myParser.expressionOverarching(sampleExpr);
