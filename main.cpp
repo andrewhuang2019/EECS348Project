@@ -52,7 +52,7 @@ int readInput(){
     //removes whitespace inbetween expression and then parses expression
     userInput = parse.removeWhitespace(userInput);
     if (userInput.size() == 0){
-        cout << "Evaluation: " << "" << endl;
+        cout << "Evaluation: " << "Invalid Expression" << endl;
         return 0;
     }
 
