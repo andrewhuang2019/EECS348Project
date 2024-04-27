@@ -18,19 +18,19 @@ class Operators {
         string orFunction(string expression){
             string ans = "";
             if(expression[0] == trueValue && expression[2] == trueValue){
-                ans = "T";
+                ans = trueValue;
             }
 
             else if(expression[0] == falseValue && expression[2] == trueValue){
-                ans = "T";
+                ans = trueValue;
             }
 
             else if(expression[0] == trueValue && expression[2] == falseValue){
-                ans = "T";
+                ans = trueValue;
             }
 
             else if (expression[0] == falseValue && expression[2] == falseValue){
-                ans = "F";
+                ans = falseValue;
             }
             return ans;
         }
@@ -38,19 +38,19 @@ class Operators {
         string andFunction(string expression){
             string ans = "";
             if(expression[0] == trueValue && expression[2] == trueValue){
-                ans = "T";
+                ans = trueValue;
             }
 
             else if(expression[0] == falseValue && expression[2] == trueValue){
-                ans = "F";
+                ans = falseValue;
             }
 
             else if(expression[0] == trueValue && expression[2] == falseValue){
-                ans = "F";
+                ans = falseValue;
             }
 
             else if(expression[0] == falseValue && expression[2] == falseValue){
-                ans = "F";
+                ans = falseValue;
             }
             return ans;
         }
@@ -58,11 +58,11 @@ class Operators {
         string notFunction(string expression){
             string ans = "";
             if(expression[1] == falseValue){
-                ans = "T";
+                ans = trueValue;
             }
 
             else if(expression[1] == trueValue){
-                ans = "F";
+                ans = falseValue;
             }
 
             return ans;
@@ -71,16 +71,16 @@ class Operators {
         string nandFunction(string expression){
             string ans;
             if (expression[0] == trueValue && expression[2] == trueValue){
-                ans = "F";
+                ans = falseValue;
             }
             else if (expression[0] == trueValue && expression[2] == falseValue){
-                ans = "T";
+                ans = trueValue;
             }
             else if (expression[0] == falseValue && expression[2] == trueValue){
-                ans = "T";
+                ans = trueValue;
             }
             else if (expression[0] == falseValue && expression[2] == falseValue){
-                ans = "T";
+                ans = trueValue;
             }
             return ans;
         }
@@ -88,16 +88,16 @@ class Operators {
         string xorFunction(string expression){
             string ans;
             if (expression[0] == trueValue && expression[2] == trueValue){
-                ans = "F";
+                ans = falseValue;
             }
             else if (expression[0] == trueValue && expression[2] == falseValue){
-                ans = "T";
+                ans = trueValue;
             }
             else if (expression[0] == falseValue && expression[2] == trueValue){
-                ans = "T";
+                ans = trueValue;
             }
             else if (expression[0] == falseValue && expression[2] == falseValue){
-                ans = "F";
+                ans = falseValue;
             }
             return ans;
         }
