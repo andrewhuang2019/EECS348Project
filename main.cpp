@@ -4,14 +4,14 @@
 
 using namespace std;
 
-void readInput();
+int readInput();
 
 int main(){
     readInput();
     return 0;
 }
 
-void readInput(){
+int readInput(){
 
     //creates placeholder variables for user input
     string choice = "N";
@@ -31,6 +31,11 @@ void readInput(){
 
         cout << "Enter value for F: ";
         cin >> falseValue;
+
+        if (trueValue == falseValue){
+            cout << "Variables must be unique.";
+            return 0;
+        }
 
         cin.ignore(); //ignores \n leftover from cin above for the cin below
 
@@ -59,5 +64,5 @@ void readInput(){
     } catch(...){
         cout << "Invalid Expression" << endl;
     }
-
+    return 0;
 }
