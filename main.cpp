@@ -23,6 +23,11 @@ int readInput(){
 
     getline(cin, choice);
 
+    if (choice != "Y" || choice != "N"){
+        cout << "Enter Y or N";
+        return 0;
+    }
+
     //if the choice above is Y for yes, then gathers user information for True/False variables
     if (choice == "Y"){
 
