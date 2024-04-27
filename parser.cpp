@@ -59,6 +59,9 @@ string Parser::expressionHandler(string expr) {
 			expr.replace(i,2,ops.notFunction(expr.substr(i,2)));
         }
     }
+    if (expr.size() == 1){
+        return expr;
+    }
     if (expr.size() == 3 && isValid(expr) && expr[0] != '('){       // Checks if there are no parentheses left and evaluates
         return evaluate(expr);
     }
