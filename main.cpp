@@ -23,7 +23,7 @@ int readInput(){
 
     getline(cin, choice);
 
-    if (choice != "Y" || choice != "N"){
+    if (choice != "Y" && choice != "N"){
         cout << "Enter Y or N";
         return 0;
     }
