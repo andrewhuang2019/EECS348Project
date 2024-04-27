@@ -49,12 +49,15 @@ void readInput(){
 
     //ouputs original expression
     cout << "Expression: " << userInput << endl;
-    
-    userInput = parse.expressionOverarching(userInput);
-    
-    //organizes and sends result as "True" or "False"
-    string trueVal;
-    trueVal += trueValue;
-    string result = (userInput == trueVal) ? "True" : "False";
-    cout << "Evaluation: " << result << endl;
+    try{
+        //organizes and sends result as "True" or "False"
+        userInput = parse.expressionOverarching(userInput);
+        string trueVal;
+        trueVal += trueValue;
+        string result = (userInput == trueVal) ? "True" : "False";
+        cout << "Evaluation: " << result << endl;
+    } catch(...){
+        cout << "Invalid Expression" << endl;
+    }
+
 }
