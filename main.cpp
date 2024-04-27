@@ -15,6 +15,8 @@ int readInput(){
 
     //creates placeholder variables for user input
     string choice = "N";
+    string trueValueInput = "T";
+    string falseValueInput = "F";
     char trueValue = 'T';
     char falseValue = 'F';
 
@@ -32,15 +34,28 @@ int readInput(){
     if (choice == "Y"){
 
         cout << "Enter value for T: ";
-        cin >> trueValue;
+        cin >> trueValueInput;
+
+        if (trueValueInput.length() > 1) {
+            cout << "Variables must be one character.";
+            return 0;
+        }
 
         cout << "Enter value for F: ";
-        cin >> falseValue;
+        cin >> falseValueInput;
 
-        if (trueValue == falseValue){
+        if (falseValueInput.length() > 1) {
+            cout << "Variables must be one character.";
+            return 0;
+        }
+
+        if (trueValueInput == falseValueInput){
             cout << "Variables must be unique.";
             return 0;
         }
+
+        trueValue = trueValueInput[0];
+        falseValue = falseValueInput[0];
 
         cin.ignore(); //ignores \n leftover from cin above for the cin below
 
