@@ -7,6 +7,7 @@ class Operators {
         char trueValue;
         char falseValue;
     public:
+        //constructor passes in two characters to be stored in the True/False variables
         Operators(char t, char f){
             trueValue = t;
             falseValue = f;
@@ -15,6 +16,7 @@ class Operators {
 
         }
 
+        //evaluates expression as an OR gate and returns True/False variable based on evaluation
         string orFunction(string expression){
             string ans = "";
             if(expression[0] == trueValue && expression[2] == trueValue){
@@ -35,6 +37,7 @@ class Operators {
             return ans;
         }
 
+        //evaluates expression as an AND gate and returns True/False variable based on evaluation
         string andFunction(string expression){
             string ans = "";
             if(expression[0] == trueValue && expression[2] == trueValue){
@@ -55,6 +58,7 @@ class Operators {
             return ans;
         }
 
+        //evaluates expression as an NOT gate and returns True/False variable based on evaluation
         string notFunction(string expression){
             string ans = "";
             if(expression[1] == falseValue){
@@ -68,6 +72,7 @@ class Operators {
             return ans;
         }
 
+        //evaluates expression as an NAND gate and returns True/False variable based on evaluation
         string nandFunction(string expression){
             string ans;
             if (expression[0] == trueValue && expression[2] == trueValue){
@@ -85,6 +90,7 @@ class Operators {
             return ans;
         }
 
+        //evaluates expression as an XOR gate and returns True/False variable based on evaluation
         string xorFunction(string expression){
             string ans;
             if (expression[0] == trueValue && expression[2] == trueValue){

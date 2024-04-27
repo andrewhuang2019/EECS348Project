@@ -13,14 +13,17 @@ int main(){
 
 void readInput(){
 
+    //creates placeholder variables for user input
     string choice = "N";
     char trueValue = 'T';
     char falseValue = 'F';
 
+    //gets the choice of if the user wants to use their own variables for True/False
     cout << "Do you want to use your own variables for T and F?(Y/N): ";
 
     getline(cin, choice);
 
+    //if the choice above is Y for yes, then gathers user information for True/False variables
     if (choice == "Y"){
 
         cout << "Enter value for T: ";
@@ -29,20 +32,26 @@ void readInput(){
         cout << "Enter value for F: ";
         cin >> falseValue;
 
-        cin.ignore();
+        cin.ignore(); //ignores \n leftover from cin above for the cin below
 
     }
 
+    //gathers user expression to be evaluated
     string userInput = " ";
     cout << "Enter expression: ";
     getline(cin, userInput);
+
+    //ouputs original expression
     cout << "Expression: " << userInput << endl;
 
+    //creates parser using the T/F variables above. 
     Parser parse = Parser(trueValue, falseValue);
 
+    //removes whitespace inbetween expression and then parses expression
     userInput = parse.removeWhitespace(userInput);
     userInput = parse.expressionOverarching(userInput);
     
+    //organizes and sends result as "True" or "False"
     string result = (userInput == "T") ? "True" : "False";
     cout << "Evaluation: " << result << endl;
 }
