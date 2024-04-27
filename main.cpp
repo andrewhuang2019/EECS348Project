@@ -41,14 +41,15 @@ void readInput(){
     cout << "Enter expression: ";
     getline(cin, userInput);
 
-    //ouputs original expression
-    cout << "Expression: " << userInput << endl;
-
     //creates parser using the T/F variables above. 
     Parser parse = Parser(trueValue, falseValue);
 
     //removes whitespace inbetween expression and then parses expression
     userInput = parse.removeWhitespace(userInput);
+
+    //ouputs original expression
+    cout << "Expression: " << userInput << endl;
+    
     userInput = parse.expressionOverarching(userInput);
     
     //organizes and sends result as "True" or "False"
