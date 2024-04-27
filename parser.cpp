@@ -9,7 +9,7 @@ using namespace std;
 
 class Parser {
     private:
-        char operators[5] = {'&','|','!','@','$'};
+        char operators[5] = {'&','|','!','@','$'}; // list of all valid operator symbols
         char trueValue;
         char falseValue;
         Operators ops = Operators(trueValue, falseValue);
