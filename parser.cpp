@@ -150,18 +150,18 @@ string Parser::expressionHandler(string expr) {
 // }
 
 bool Parser::isValid(string expr){
-    for (int i = 0; i < 5; i++){
-        if (expr[1] == operators[i]){
-            return true;
-        }
-    }
     if (expr[0] != 'T' || expr[0] != 'F'){
         return false;
     }
     if (expr[2] != 'T' || expr[2] != 'F'){
         return false;
     }
-    return true;
+    for (int i = 0; i < 5; i++){
+        if (expr[1] == operators[i]){
+            return true;
+        }
+    }
+    return false;
 }
 
 string Parser::evaluate(string expr){
