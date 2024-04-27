@@ -51,6 +51,10 @@ int readInput(){
 
     //removes whitespace inbetween expression and then parses expression
     userInput = parse.removeWhitespace(userInput);
+    if (userInput.size() == 0){
+        cout << "Evaluation: " << "" << endl;
+        return 0;
+    }
 
     //ouputs original expression
     cout << "Expression: " << userInput << endl;
