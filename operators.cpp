@@ -12,9 +12,6 @@ class Operators {
             trueValue = t;
             falseValue = f;
         }
-        Operators(){
-
-        }
 
         //evaluates expression as an OR gate and returns True/False variable based on evaluation
         string orFunction(string expression){

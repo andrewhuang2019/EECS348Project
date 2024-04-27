@@ -23,9 +23,6 @@ class Parser {
             ops = Operators(trueValue, falseValue);
         }
 
-        Parser(){
-
-        }
         string removeWhitespace(string);
         string evaluate(string);
         string expressionOverarching(string);
