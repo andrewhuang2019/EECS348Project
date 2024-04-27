@@ -80,9 +80,6 @@ string parenthesesHandler(string expr) {
 */
 string Parser::expressionOverarching(string expr) {
     while (expr.size() > 1){
-        if (expr.size() == 3 && isValid(expr) && expr[0] != '('){
-            return evaluate(expr);
-        }
         expr = expressionHandler(expr);
     }
     return expr;
@@ -126,8 +123,11 @@ string Parser::expressionHandler(string expr) {
     //     endIndex++;
     // }
     // endIndex++;
+    if (expr.size() == 3 && isValid(expr) && expr[0] != '('){       // Checks if there are no parentheses left and evaluates
+        return evaluate(expr);
+    }
     int endIndex = 0;
-    while (expr[endIndex] != ')'){
+    while (expr[endIndex] != ')'){         
         endIndex++;
     }
     int startIndex = endIndex;
@@ -135,7 +135,7 @@ string Parser::expressionHandler(string expr) {
         startIndex--;
     }
     int length = endIndex-startIndex;
-    if (length == 2){
+    if (length == 2){                     // Runs if there is a single value enclosed in parentheses
         expr.erase(startIndex,1);
         expr.erase(endIndex-1,1);
         return expr;
@@ -213,8 +213,7 @@ string Parser::evaluate(string expr){
 
 int main() {
     Parser myParser = Parser('T', 'F');
-    string sampleExpr = "(((! (T $ F)) & (T @ T)) | ((F | T) & (T $ T)))";
-    //string sampleExpr = "((F @ T) $ (T | (F & F))) & (T & (T @ (!T)))";
+    string sampleExpr = "! F | ! T";
 
     sampleExpr = myParser.removeWhitespace(sampleExpr);
     string newExpr = myParser.expressionOverarching(sampleExpr);
