@@ -34,18 +34,14 @@ class Parser {
         int printValues();
 };
 
-int Parser::printValues(){
-    cout << trueValue;
-    cout << falseValue;
-    return 0;
-}
-
+//removes any spaces within expression. 
 string Parser::removeWhitespace(string expr){
     string::iterator end_pos = remove(expr.begin(), expr.end(), ' ');
     expr.erase(end_pos, expr.end());
     return expr;
 }
 
+//runs the expressionHandler function while its size is greater than 1. 
 string Parser::expressionOverarching(string expr) {
     while (expr.size() > 1){
         expr = expressionHandler(expr);
@@ -53,6 +49,11 @@ string Parser::expressionOverarching(string expr) {
     return expr;
 }
 
+/*
+handles logic for a basic expression with parenthesis (ex: (!T) or (T&F))
+after the evaluation of the expression, replaces the basic expression with T/F variable
+returns resulting full string expression with replacement
+*/
 string Parser::expressionHandler(string expr) {
     for (int i = 0; i < expr.size(); i++) {
         if (expr[i] == '!' && expr[i+1] != '(' && expr[i+1] != ')') {
@@ -86,7 +87,7 @@ string Parser::expressionHandler(string expr) {
     }
 }
 
-
+//checks if a 3 character expression is a valid statement
 bool Parser::isValid(string expr){
     if (expr[0] != trueValue && expr[0] != falseValue){
         return false;
@@ -102,8 +103,9 @@ bool Parser::isValid(string expr){
     return false;
 }
 
+//returns a T or F value based on what the second value (operator) of the string expression is 
 string Parser::evaluate(string expr){
-    //returns a T or F value based on what the second value (operator) of the string expression is 
+
     if (expr[1] == '|'){
         return ops.orFunction(expr);
     } else if (expr[1] == '&') {
