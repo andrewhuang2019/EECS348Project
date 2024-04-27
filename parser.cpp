@@ -10,15 +10,19 @@ using namespace std;
 class Parser {
     private:
         char operators[5] = {'&','|','!','@','$'};
-        Operators ops = Operators('T','F');
         char trueValue;
         char falseValue;
+        Operators ops = Operators(trueValue, falseValue);
 
     public:
-        Parser(char trueValue, char falseValue){
-            this->trueValue = trueValue;
-            this->falseValue = falseValue;
+        //ops = Operators(trueValue, falseValue);
+        //: ops(t, f), trueValue('T'), falseValue('F') 
+        Parser(char t, char f) {
+            trueValue = t;
+            falseValue = f;
+            ops = Operators(trueValue, falseValue);
         }
+
         Parser(){
 
         }
@@ -27,7 +31,14 @@ class Parser {
         string expressionOverarching(string);
         string expressionHandler(string);
         bool isValid(string);
+        int printValues();
 };
+
+int Parser::printValues(){
+    cout << trueValue;
+    cout << falseValue;
+    return 0;
+}
 
 string Parser::removeWhitespace(string expr){
     string::iterator end_pos = remove(expr.begin(), expr.end(), ' ');
@@ -67,23 +78,6 @@ string parenthesesHandler(string expr) {
     
 }
 */
-
-// string Parser::expressionOverarching(string expr) {
-//     int openParen = 0;
-//     for (int i = 0; i < expr.size(); i++) {
-//         if (expr[i] == '(') {
-//             openParen++;
-//             //cout << openParen;
-//         }
-//     }
-//     for (int i = 0; i < openParen; i++) {
-//         expr = expressionHandler(expr);
-//         //cout << i;
-//     }
-//     return expr;
-// }
-
-
 string Parser::expressionOverarching(string expr) {
     while (expr.size() > 1){
         if (expr.size() == 3 && isValid(expr) && expr[0] != '('){
@@ -209,7 +203,8 @@ string Parser::evaluate(string expr){
 
 
 int main() {
-    Parser myParser = Parser();
+    Parser myParser = Parser('T', 'F');
+    //(((T @ T) $ (F @ T)) | ((!T) & (T | (!T))))
     //(((T @ T) $ (F @ T)) | ((!T) & (T | (!T))))
     string sampleExpr = "(((! (T $ F)) & (T @ T)) | ((F | T) & (T $ T)))";
 

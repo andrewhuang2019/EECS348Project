@@ -7,10 +7,14 @@ class Operators {
         char trueValue;
         char falseValue;
     public:
-        Operators(char trueValue, char falseValue){
-            this->trueValue = trueValue;
-            this->falseValue = falseValue;
+        Operators(char t, char f){
+            trueValue = t;
+            falseValue = f;
         }
+        Operators(){
+
+        }
+
         string orFunction(string expression){
             string ans = "";
             if(expression[0] == trueValue && expression[2] == trueValue){
