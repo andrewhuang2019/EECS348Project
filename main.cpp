@@ -46,7 +46,8 @@ void readInput(){
     while (userInput.size() > 1){
         userInput = parse.expressionHandler(userInput);
     }*/
-    cout << "Evaluation: " << userInput << endl;
+    string result = (userInput == "T") ? "True" : "False";
+    cout << "Evaluation: " << result << endl;
 
     // if (parse.isValid(userInput)){
     //     throw ("Invalid Input");
