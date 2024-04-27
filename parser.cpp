@@ -19,6 +19,9 @@ class Parser {
             this->trueValue = trueValue;
             this->falseValue = falseValue;
         }
+        Parser(){
+
+        }
         string removeWhitespace(string);
         string evaluate(string);
         string expressionOverarching(string);
@@ -66,13 +69,15 @@ string parenthesesHandler(string expr) {
 */
 string Parser::expressionOverarching(string expr) {
     int openParen = 0;
-    for (int i = 0; i < sizeof(expr); i++) {
+    for (int i = 0; i < expr.size(); i++) {
         if (expr[i] == '(') {
             openParen++;
+            cout << openParen;
         }
     }
     for (int i = 0; i < openParen; i++) {
         expr = expressionHandler(expr);
+        cout << i;
     }
     return expr;
 }
@@ -182,14 +187,15 @@ string Parser::evaluate(string expr){
 
 }
 
-/*
+
 
 int main() {
     Parser myParser = Parser();
-    string sampleExpr = "((F$((T|F)&(F@(!T|F))))|(T$(T&F)))";
+    //(((T @ T) $ (F @ T)) | ((!T) & (T | (!T))))
+    string sampleExpr = "((F @ T) $ (T | (F & F))) & (T & (T @ (!T)))";
+    sampleExpr = myParser.removeWhitespace(sampleExpr);
     string newExpr = myParser.expressionOverarching(sampleExpr);
     cout << newExpr;
     return 0;
 }
 
-*/
