@@ -6,8 +6,10 @@ This project simulates digital logic systems in C++, through the comprehensive d
 The gates that are implemented in this project are: AND, OR, NOT, NAND, XOR.  
 
 ## News:  
-Added Software Architecture document, which defines the architecture that our program will follow.  
-Updated Meeting Notes with most recent meeting (April 6th).  
+Began Implementation phase of the program - added three C++ files (main.cpp, parser.cpp, and operators.cpp).  
+Added Test Cases document, which contains a table with testing for the program.  
+Added User Manual document, which provides an in-depth description of how to use the program.  
+Added Quick Start Section, giving users easy steps to follow to run the program.  
 
 ## Functionality:
 #### Truth Value Input
@@ -36,11 +38,38 @@ Logical parsing systems within the program are able to be combined together to c
 T = !(T & T)  [Variable defined in terms of itself]  
 True | F  [Inconsistent characters]  
 
+More examples can be found in the [Test Cases](urlplaceholder) document.  
+
 ## Quick Start (How to Run): 
 
-TBD
-1. step 1 
-2. step 2 
-3. step 3
+Below is a quick tutorial on how to use the project.  
 
-`code snippet`
+1. Download the latest release on the right of the GitHub.  
+
+Picture here  
+
+2. Unzip the files of the project.  
+
+Picture here  
+
+3. Navigate to the project folder in the terminal.  
+
+Picture here  
+
+4. Run the code below to execute "main.cpp".  
+
+`code snippet`  
+
+5. Input if you want to use variables other than T/F for the expression.  
+
+Picture here  
+
+6. Input the expression.  
+
+Picture here  
+
+7. The program will return an output.  
+
+Picture here  
+
+If you have any more questions or want a more in-depth explanation, reference the [User Manual](urlplaceholder).  
