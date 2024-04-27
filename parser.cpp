@@ -45,7 +45,7 @@ string Parser::expressionOverarching(string expr) {
     }
     if (expr[0] != trueValue || expr[0] != falseValue){
         throw 505;
-        return expr;
+        //return expr;
     }
     return expr;
 }
