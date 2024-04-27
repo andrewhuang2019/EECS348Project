@@ -16,7 +16,7 @@ class Parser {
 
     public:
         //ops = Operators(trueValue, falseValue);
-        //: ops(t, f), trueValue('T'), falseValue('F') 
+        //: ops(t, f), trueValue(trueValue), falseValue('F') 
         Parser(char t, char f) {
             trueValue = t;
             falseValue = f;
@@ -175,10 +175,10 @@ string Parser::expressionHandler(string expr) {
 // }
 
 bool Parser::isValid(string expr){
-    if (expr[0] != 'T' && expr[0] != 'F'){
+    if (expr[0] != trueValue && expr[0] != falseValue){
         return false;
     }
-    if (expr[2] != 'T' && expr[2] != 'F'){
+    if (expr[2] != trueValue && expr[2] != falseValue){
         return false;
     }
     for (int i = 0; i < 5; i++){
