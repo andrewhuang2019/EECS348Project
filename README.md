@@ -38,7 +38,7 @@ Logical parsing systems within the program are able to be combined together to c
 T = !(T & T)  [Variable defined in terms of itself]  
 True | F  [Inconsistent characters]  
 
-More examples can be found in the Test Cases document linked [here](urlplaceholder)
+More examples can be found in the [Test Cases](urlplaceholder) document.  
 
 ## Quick Start (How to Run): 
 
@@ -49,4 +49,4 @@ TBD
 
 `code snippet`
 
-If you have any more questions for this project or want a more in-depth explanation the User Manual can be found [here](urlplaceholder)
+If you have any more questions for this project or want a more in-depth explanation, reference the [User Manual](urlplaceholder).  
