@@ -67,17 +67,29 @@ string parenthesesHandler(string expr) {
     
 }
 */
+
+// string Parser::expressionOverarching(string expr) {
+//     int openParen = 0;
+//     for (int i = 0; i < expr.size(); i++) {
+//         if (expr[i] == '(') {
+//             openParen++;
+//             //cout << openParen;
+//         }
+//     }
+//     for (int i = 0; i < openParen; i++) {
+//         expr = expressionHandler(expr);
+//         //cout << i;
+//     }
+//     return expr;
+// }
+
+
 string Parser::expressionOverarching(string expr) {
-    int openParen = 0;
-    for (int i = 0; i < expr.size(); i++) {
-        if (expr[i] == '(') {
-            openParen++;
-            //cout << openParen;
-        }
-    }
-    for (int i = 0; i < openParen; i++) {
+    while (expr.size() > 1){
         expr = expressionHandler(expr);
-        //cout << i;
+        if (expr.size() == 3 && isValid(expr)){
+            return evaluate(expr);
+        }
     }
     return expr;
 }
