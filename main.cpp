@@ -53,6 +53,8 @@ void readInput(){
     userInput = parse.expressionOverarching(userInput);
     
     //organizes and sends result as "True" or "False"
-    string result = (userInput == "T") ? "True" : "False";
+    string trueVal;
+    trueVal += trueValue;
+    string result = (userInput == trueVal) ? "True" : "False";
     cout << "Evaluation: " << result << endl;
 }
