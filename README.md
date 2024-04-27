@@ -58,7 +58,7 @@ Picture here
 
 4. Run the code below to execute "main.cpp".  
 
-`code snippet`
+`code snippet`  
 
 5. Input if you want to use variables other than T/F for the expression.  
 
@@ -68,7 +68,7 @@ Picture here
 
 Picture here  
 
-7. The program will return an output. 
+7. The program will return an output.  
 
 Picture here  
 
