@@ -91,7 +91,6 @@ string Parser::expressionHandler(string expr) {
 			expr.replace(i,2,ops.notFunction(expr.substr(i,2)));
         }
     }
-    cout << expr << "\n";
     // map<int, int> parenCount;                       // Creates map to keep track of parentheses count (see next for loop)
     // int openParen = 0;                              // Creates ints to keep track of parentheses count
     // int closeParen = 0;
@@ -212,11 +211,12 @@ string Parser::evaluate(string expr){
 
 int main() {
     Parser myParser = Parser('T', 'F');
-    string sampleExpr = "! F | ! T";
+    string sampleExpr = "(((((T | F) & F) | (T & (T | F))) @ (T @ T)) $ (! (T | F)))";
 
     sampleExpr = myParser.removeWhitespace(sampleExpr);
     string newExpr = myParser.expressionOverarching(sampleExpr);
-    cout << newExpr;
+    cout << "Expression: " << sampleExpr << endl;
+    cout << "Evaluation: " << newExpr << endl;
     return 0;
 }
 
