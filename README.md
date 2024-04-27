@@ -42,11 +42,34 @@ More examples can be found in the [Test Cases](urlplaceholder) document.
 
 ## Quick Start (How to Run): 
 
-TBD
-1. step 1 
-2. step 2 
-3. step 3  
+Below is a quick tutorial on how to use the project.  
+
+1. Download the latest release on the right of the GitHub.  
+
+Picture here  
+
+2. Unzip the files of the project.  
+
+Picture here  
+
+3. Navigate to the project folder in the terminal.  
+
+Picture here  
+
+4. Run the code below to execute "main.cpp".  
 
 `code snippet`
+
+5. Input if you want to use variables other than T/F for the expression.  
+
+Picture here  
+
+6. Input the expression.  
+
+Picture here  
+
+7. The program will return an output. 
+
+Picture here  
 
 If you have any more questions or want a more in-depth explanation, reference the [User Manual](urlplaceholder).  
