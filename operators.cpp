@@ -4,22 +4,28 @@ using namespace std;
 
 class Operators {
     private:
+        char trueValue;
+        char falseValue;
     public:
+        Operators(char trueValue, char falseValue){
+            this->trueValue = trueValue;
+            this->falseValue = falseValue;
+        }
         string orFunction(string expression){
             string ans = "";
-            if(expression[0] == 'T' && expression[2] == 'T'){
+            if(expression[0] == trueValue && expression[2] == trueValue){
                 ans = "T";
             }
 
-            else if(expression[0] == 'F' && expression[2] == 'T'){
+            else if(expression[0] == falseValue && expression[2] == trueValue){
                 ans = "T";
             }
 
-            else if(expression[0] == 'T' && expression[2] == 'F'){
+            else if(expression[0] == trueValue && expression[2] == falseValue){
                 ans = "T";
             }
 
-            else if (expression[0] == 'F' && expression[2] == 'F'){
+            else if (expression[0] == falseValue && expression[2] == falseValue){
                 ans = "F";
             }
             return ans;
@@ -27,19 +33,19 @@ class Operators {
 
         string andFunction(string expression){
             string ans = "";
-            if(expression[0] == 'T' && expression[2] == 'T'){
+            if(expression[0] == trueValue && expression[2] == trueValue){
                 ans = "T";
             }
 
-            else if(expression[0] == 'F' && expression[2] == 'T'){
+            else if(expression[0] == falseValue && expression[2] == trueValue){
                 ans = "F";
             }
 
-            else if(expression[0] == 'T' && expression[2] == 'F'){
+            else if(expression[0] == trueValue && expression[2] == falseValue){
                 ans = "F";
             }
 
-            else if(expression[0] == 'F' && expression[2] == 'F'){
+            else if(expression[0] == falseValue && expression[2] == falseValue){
                 ans = "T";
             }
             return ans;
@@ -47,11 +53,11 @@ class Operators {
 
         string notFunction(string expression){
             string ans = "";
-            if(expression[1] == 'F'){
+            if(expression[1] == falseValue){
                 ans = "T";
             }
 
-            else if(expression[1] == 'T'){
+            else if(expression[1] == trueValue){
                 ans = "F";
             }
 
@@ -60,16 +66,16 @@ class Operators {
 
         string nandFunction(string expression){
             string ans;
-            if (expression[0] == 'T' && expression[2] == 'T'){
+            if (expression[0] == trueValue && expression[2] == trueValue){
                 ans = "F";
             }
-            else if (expression[0] == 'T' && expression[2] == 'F'){
+            else if (expression[0] == trueValue && expression[2] == falseValue){
                 ans = "T";
             }
-            else if (expression[0] == 'F' && expression[2] == 'T'){
+            else if (expression[0] == falseValue && expression[2] == trueValue){
                 ans = "T";
             }
-            else if (expression[0] == 'F' && expression[2] == 'F'){
+            else if (expression[0] == falseValue && expression[2] == falseValue){
                 ans = "T";
             }
             return ans;
@@ -77,16 +83,16 @@ class Operators {
 
         string xorFunction(string expression){
             string ans;
-            if (expression[0] == 'T' && expression[2] == 'T'){
+            if (expression[0] == trueValue && expression[2] == trueValue){
                 ans = "F";
             }
-            else if (expression[0] == 'T' && expression[2] == 'F'){
+            else if (expression[0] == trueValue && expression[2] == falseValue){
                 ans = "T";
             }
-            else if (expression[0] == 'F' && expression[2] == 'T'){
+            else if (expression[0] == falseValue && expression[2] == trueValue){
                 ans = "T";
             }
-            else if (expression[0] == 'F' && expression[2] == 'F'){
+            else if (expression[0] == falseValue && expression[2] == falseValue){
                 ans = "F";
             }
             return ans;
