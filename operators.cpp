@@ -50,7 +50,7 @@ class Operators {
             }
 
             else if(expression[0] == falseValue && expression[2] == falseValue){
-                ans = "T";
+                ans = "F";
             }
             return ans;
         }
