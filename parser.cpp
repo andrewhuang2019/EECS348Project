@@ -206,17 +206,3 @@ string Parser::evaluate(string expr){
     }
 
 }
-
-
-
-int main() {
-    Parser myParser = Parser('T', 'F');
-    string sampleExpr = "(((((T | F) & F) | (T & (T | F))) @ (T @ T)) $ (! (T | F)))";
-
-    sampleExpr = myParser.removeWhitespace(sampleExpr);
-    string newExpr = myParser.expressionOverarching(sampleExpr);
-    cout << "Expression: " << sampleExpr << endl;
-    cout << "Evaluation: " << newExpr << endl;
-    return 0;
-}
-

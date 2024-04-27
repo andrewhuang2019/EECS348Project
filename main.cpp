@@ -36,17 +36,17 @@ void readInput(){
     string userInput = " ";
     cout << "Enter expression: ";
     getline(cin, userInput);
-
+    cout << "Expression: " << userInput << endl;
 
     Parser parse = Parser(trueValue, falseValue);
 
     userInput = parse.removeWhitespace(userInput);
-
+    userInput = parse.expressionOverarching(userInput);
     /*
     while (userInput.size() > 1){
         userInput = parse.expressionHandler(userInput);
     }*/
-    cout << userInput << endl;
+    cout << "Evaluation: " << userInput << endl;
 
     // if (parse.isValid(userInput)){
     //     throw ("Invalid Input");
