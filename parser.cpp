@@ -72,12 +72,12 @@ string Parser::expressionOverarching(string expr) {
     for (int i = 0; i < expr.size(); i++) {
         if (expr[i] == '(') {
             openParen++;
-            cout << openParen;
+            //cout << openParen;
         }
     }
     for (int i = 0; i < openParen; i++) {
         expr = expressionHandler(expr);
-        cout << i;
+        //cout << i;
     }
     return expr;
 }
@@ -120,12 +120,19 @@ string Parser::expressionHandler(string expr) {
         endIndex++;
     }
     endIndex++;
-    string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-2));             // Generates substring from operation area (excluding parentheses) to be evaluated
-    if (isValid(evaluateStr)){
-        expr.replace(startIndex,(endIndex-startIndex),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
-        return expr;                                                                        // Returns input string with the area replaced
-    } else {
-        return "Invalid expression";
+    int length = endIndex-startIndex;
+    if (length == 3){
+        expr.erase(startIndex,1);
+        expr.erase(endIndex,1);
+        return expr;
+    } else{
+        string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-2));             // Generates substring from operation area (excluding parentheses) to be evaluated
+        if (isValid(evaluateStr)){
+            expr.replace(startIndex,(endIndex-startIndex),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
+            return expr;                                                                        // Returns input string with the area replaced
+        } else {
+            return "Invalid expression";
+        }
     }
 }
 
@@ -155,10 +162,10 @@ string Parser::expressionHandler(string expr) {
 // }
 
 bool Parser::isValid(string expr){
-    if (expr[0] != 'T' || expr[0] != 'F'){
+    if (expr[0] != 'T' && expr[0] != 'F'){
         return false;
     }
-    if (expr[2] != 'T' || expr[2] != 'F'){
+    if (expr[2] != 'T' && expr[2] != 'F'){
         return false;
     }
     for (int i = 0; i < 5; i++){
@@ -193,6 +200,7 @@ int main() {
     Parser myParser = Parser();
     //(((T @ T) $ (F @ T)) | ((!T) & (T | (!T))))
     string sampleExpr = "((F @ T) $ (T | (F & F))) & (T & (T @ (!T)))";
+
     sampleExpr = myParser.removeWhitespace(sampleExpr);
     string newExpr = myParser.expressionOverarching(sampleExpr);
     cout << newExpr;
