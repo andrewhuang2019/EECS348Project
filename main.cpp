@@ -13,7 +13,7 @@ int main(){
 
 void readInput(){
 
-    string choice = "Y";
+    string choice = "N";
     char trueValue = 'T';
     char falseValue = 'F';
 
@@ -29,13 +29,17 @@ void readInput(){
         cout << "Enter value for F: ";
         cin >> falseValue;
 
+        cin.ignore();
+
     }
+
+    string userInput = " ";
+    cout << "Enter expression: ";
+    getline(cin, userInput);
+
 
     Parser parse = Parser(trueValue, falseValue);
 
-    string userInput;
-    cout << "Enter expression: ";
-    getline(cin,userInput);
     userInput = parse.removeWhitespace(userInput);
 
     /*
