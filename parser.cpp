@@ -43,7 +43,7 @@ string Parser::expressionOverarching(string expr) {
     while (expr.size() > 1){
         expr = expressionHandler(expr);
     }
-    if (expr[0] != trueValue || expr[0] != falseValue){
+    if (expr[0] != trueValue && expr[0] != falseValue){
         throw 505;
     }
     return expr;
