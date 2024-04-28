@@ -48,7 +48,7 @@ Below is a quick tutorial on how to use the project.
 
 1. Download the latest release on the right of the GitHub.  
 
-Picture here  
+![image](<Screenshot 2024-04-27 at 8.18.37 PM.png>)
 
 2. Unzip the files of the project.  
 
