@@ -8,7 +8,7 @@ This project simulates digital logic systems in C++, through the comprehensive d
 The gates that are implemented in this project are: AND, OR, NOT, NAND, XOR.  
 
 ## News:  
-Began Implementation phase of the program - added three C++ files (main.cpp, parser.cpp, and operators.cpp).  
+Finished Implementation of the program - added three C++ files (main.cpp, parser.cpp, and operators.cpp).  
 Added Test Cases document, which contains a table with testing for the program.  
 Added User Manual document, which provides an in-depth description of how to use the program.  
 Added Quick Start Section, giving users easy steps to follow to run the program.  
