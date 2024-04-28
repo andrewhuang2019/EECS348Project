@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-class Operators {
+class Operators { //class will container the five operators OR, AND, NOT, NAND, and XOR
     private:
         char trueValue;
         char falseValue;
