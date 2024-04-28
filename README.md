@@ -1,4 +1,4 @@
-# **Boolean Logic Simulator in C++**
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/dad907d1-ac7e-4ca9-9a45-c96687dcc437)# **Boolean Logic Simulator in C++**
 
 ## Introduction:
 This project simulates digital logic systems in C++, through the comprehensive definition of functionality with gates and their interaction with expressions containing boolean True and False input. 
@@ -70,9 +70,11 @@ Picture here
 
 7. Input the expression.  
 
-Picture here  
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/304b09e6-0570-4685-9658-1622abd638a2)  
 
 8. The program will return an output.  
+
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/5751e47d-20b4-4bfc-85a2-a0a80ee06283)
 
 Picture here  
 
