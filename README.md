@@ -1,4 +1,4 @@
-# **Boolean Expression Evaluator (BEE) in C++**
+# **Boolean Expression Evaluator (B.E.E.) in C++**
 
 ![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/b71ec4c8-2edd-40e5-8c68-ffcc2961bd7d)
 
