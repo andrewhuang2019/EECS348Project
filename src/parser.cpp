@@ -38,7 +38,7 @@ string Parser::removeWhitespace(string expr){
     return expr;
 }
 
-//runs the expressionHandler function while its size is greater than 1. 
+//runs the expressionHandler function until output size = 1 
 string Parser::expressionOverarching(string expr) {
     while (expr.size() > 1){
         expr = expressionHandler(expr);
@@ -80,10 +80,13 @@ string Parser::expressionHandler(string expr) {
         expr.erase(endIndex-1,1);
         return expr;
     } else{
-        string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-1));             // Generates substring from operation area (excluding parentheses) to be evaluated
+        string evaluateStr = expr.substr(startIndex+1,(endIndex-startIndex-1));             
+	// Generates substring from operation area (excluding parentheses) to be evaluated
         if (isValid(evaluateStr)){
-            expr.replace(startIndex,(endIndex-startIndex+1),evaluate(evaluateStr));        // Replaces evaluation area (including parentheses) with evaluated substring
-            return expr;                                                                        // Returns input string with the area replaced
+            expr.replace(startIndex,(endIndex-startIndex+1),evaluate(evaluateStr));
+		// Replaces evaluation area (including parentheses) with evaluated substring
+            return expr;                                                                        
+		// Returns input string with the area replaced
         } else {
             return "Invalid expression";
         }
@@ -117,7 +120,7 @@ string Parser::evaluate(string expr){
         return ops.nandFunction(expr);
     } else if (expr[1] == '$') {
         return ops.xorFunction(expr);
-    } else { //throws an error if the second expression is not either. 
+    } else { //throws an error if the second expression is not one of the valid operators |, &, @, $ 
 
         throw std::runtime_error("Invalid operator in expression");
 
