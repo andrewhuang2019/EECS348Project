@@ -49,7 +49,7 @@ Below is a quick tutorial on how to use the project.
 
 1. Download the latest release on the right of the GitHub.  
 
-Picture here
+<img width="1330" alt="Screenshot 2024-04-27 at 8 18 37 PM" src="https://github.com/andrewhuang2019/EECS348Project/assets/108380345/1335c9c2-5bee-421e-a09b-549a15466d6c">
 
 2. Unzip the files of the project.  
 
