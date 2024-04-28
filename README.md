@@ -52,23 +52,27 @@ Picture here
 
 Picture here  
 
-3. Navigate to the project folder in the terminal.  
+3. Navigate to the project folder "src" in the terminal.  
 
 Picture here  
 
-4. Run the code below to execute "main.cpp".  
+4. To compile the code, use the command below: 
 
-`code snippet`  
+`g++ main.cpp`
 
-5. Input if you want to use variables other than T/F for the expression.  
+5. To see the output, use the command below:
+
+`./a.out`
+
+6. Input if you want to use variables other than T/F for the expression.  
 
 Picture here  
 
-6. Input the expression.  
+7. Input the expression.  
 
 Picture here  
 
-7. The program will return an output.  
+8. The program will return an output.  
 
 Picture here  
 
