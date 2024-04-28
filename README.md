@@ -1,4 +1,4 @@
-![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/dad907d1-ac7e-4ca9-9a45-c96687dcc437)# **Boolean Logic Simulator in C++**
+# **Boolean Logic Simulator in C++**
 
 ## Introduction:
 This project simulates digital logic systems in C++, through the comprehensive definition of functionality with gates and their interaction with expressions containing boolean True and False input. 
