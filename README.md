@@ -66,7 +66,7 @@ Picture here
 
 6. Input if you want to use variables other than T/F for the expression.  
 
-Picture here  
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/b6d03f8f-c315-43c3-a9bd-6874de18c2da)
 
 7. Input the expression.  
 
