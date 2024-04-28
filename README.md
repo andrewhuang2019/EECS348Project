@@ -78,4 +78,4 @@ Picture here
 
 ![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/5751e47d-20b4-4bfc-85a2-a0a80ee06283)
 
-If you have any more questions or want a more in-depth explanation, reference the [User Manual](doc/UserManual.pdf).  
+If you have any more questions or want a more in-depth explanation, reference the [User Manual](doc/UsersManual.pdf).  
