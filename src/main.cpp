@@ -20,8 +20,6 @@ int readInput(){
     char trueValue = 'T';
     char falseValue = 'F';
 
-    //gets the choice of if the user wants to use their own variables for True/False
-
     cout << //This outputs a beautifully crafted bee with our logo
         //in order to represent the wonderful abbreviation B.E.E. we have used throughout this project
         "\n        ....         .......\n"             
@@ -51,12 +49,13 @@ int readInput(){
         " / _  / /_/ / __ |/    / (_ / / __ |/    / // / / /__/ /_/ /\n"
         "/_//_/\\____/_/ |_/_/|_/\\___/ /_/ |_/_/|_/____/  \\___/\\____(_)\n\n";
 
+    //gets the choice of if the user wants to use their own variables for True/False
     cout << "Do you want to use your own variables for T and F?(Y/N): ";
 
-    getline(cin, choice);
+    getline(cin, choice); //store answer in choice
 
     if (choice != "Y" && choice != "N"){
-        cout << "Enter Y or N";
+        cout << "Enter Y or N"; //if invalid reprompt user
         return 0;
     }
 
