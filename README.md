@@ -9,8 +9,8 @@ The gates that are implemented in this project are: AND, OR, NOT, NAND, XOR.
 
 ## News:  
 Finished Implementation of the program - added three C++ files (main.cpp, parser.cpp, and operators.cpp).  
-Added Test Cases document, which contains a table with testing for the program. 
-Added additional self-made test cases for extra credit.
+Added Test Cases document, which contains a table with testing for the program.  
+Added additional self-made test cases for extra credit.  
 Added User Manual document, which provides an in-depth description of how to use the program.  
 Added Quick Start Section, giving users easy steps to follow to run the program.  
 Created a release to download the program without the documentation and README files.  
