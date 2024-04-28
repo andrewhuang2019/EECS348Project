@@ -1,4 +1,6 @@
-# **Boolean Logic Simulator in C++**
+# **Boolean Expression Evaluator (BEE) in C++**
+
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/b71ec4c8-2edd-40e5-8c68-ffcc2961bd7d)
 
 ## Introduction:
 This project simulates digital logic systems in C++, through the comprehensive definition of functionality with gates and their interaction with expressions containing boolean True and False input. 
@@ -66,14 +68,14 @@ Picture here
 
 6. Input if you want to use variables other than T/F for the expression.  
 
-Picture here  
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/b6d03f8f-c315-43c3-a9bd-6874de18c2da)
 
 7. Input the expression.  
 
-Picture here  
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/304b09e6-0570-4685-9658-1622abd638a2)  
 
 8. The program will return an output.  
 
-Picture here  
+![image](https://github.com/andrewhuang2019/EECS348Project/assets/130803554/5751e47d-20b4-4bfc-85a2-a0a80ee06283)
 
 If you have any more questions or want a more in-depth explanation, reference the [User Manual](doc/UserManual.pdf).  
