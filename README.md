@@ -41,6 +41,7 @@ T = !(T & T)  [Variable defined in terms of itself]
 True | F  [Inconsistent characters]  
 
 More examples can be found in the [Test Cases](doc/TestCases.pdf) document.  
+All given inputs and outputs can be referenced in the [Outputs](doc/Outputs.pdf) document.
 
 ## Quick Start (How to Run): 
 
