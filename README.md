@@ -53,11 +53,11 @@ Below is a quick tutorial on how to use the project.
 
 2. Unzip the files of the project.  
 
-Picture here  
+<img width="764" alt="Screenshot 2024-04-27 at 8 30 46 PM" src="https://github.com/andrewhuang2019/EECS348Project/assets/108380345/908880cf-fd1c-4357-9fa8-553ce0d91205">
 
 3. Navigate to the project folder "src" in the terminal.  
 
-Picture here  
+<img width="291" alt="Screenshot 2024-04-27 at 8 32 53 PM" src="https://github.com/andrewhuang2019/EECS348Project/assets/108380345/3eacaf36-abd5-4877-92f4-0b12f054affd">
 
 4. To compile the code, use the command below: 
 
