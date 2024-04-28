@@ -22,7 +22,8 @@ int readInput(){
 
     //gets the choice of if the user wants to use their own variables for True/False
 
-    cout <<
+    cout << //This outputs a beautifully crafted bee with our logo
+        //in order to represent the wonderful abbreviation B.E.E. we have used throughout this project
         "\n        ....         .......\n"             
         " .:...  .=+++-.   .::::::::::\n"            
         "..::-=+-.   :+-  .::::::::::.    .\n"       
